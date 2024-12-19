@@ -53,10 +53,8 @@ def filter_contours_by_shape(mask):
             # Use the number of vertices to estimate the shape (leaf-like shapes are usually smooth)
             if len(approx) > 5:  # Ignore shapes that are too simple (like lines or small blobs)
                 cv2.drawContours(leaf_mask, [contour], -1, 255, thickness=cv2.FILLED)
-```
-
     return leaf_mask
-
+```
 #### `detect_blight(image, leaf_mask)`
 - **Input**: Original image and the refined leaf mask.
 - **Output**: A binary mask highlighting blighted regions.
@@ -88,7 +86,7 @@ def detect_blight(image, leaf_mask):
     blight_mask = cv2.morphologyEx(blight_mask, cv2.MORPH_CLOSE, kernel)  # Close small holes
 
     return blight_mask
-
+```
 
 #### `draw_circles_around_blight(image, blight_mask)`
 - **Input**: Original image and the binary mask of blighted regions.
@@ -98,6 +96,27 @@ def detect_blight(image, leaf_mask):
   1. Detects contours of the blighted regions.
   2. Computes the minimum enclosing circle for each contour.
   3. Draws red circles on the original image around the blighted areas.
+```python
+def draw_circles_around_blight(image, blight_mask):
+
+    # Find contours of the blighted regions
+    contours, _ = cv2.findContours(blight_mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+
+    # Draw circles around each blighted region
+    for contour in contours:
+        # Calculate the minimum enclosing circle for each blighted region
+        (x, y), radius = cv2.minEnclosingCircle(contour)
+
+        # Drawing circles on the original image
+        center = (int(x), int(y))
+        radius = int(radius)
+
+        # Draw a thin circle 
+        cv2.circle(image, center, radius, (0, 0, 255), thickness=2)  # Red circles
+
+    return image
+```
+
 
 #### `remove_background(image, mask)`
 - **Input**: Original image and the leaf mask.
@@ -106,6 +125,17 @@ def detect_blight(image, leaf_mask):
 - **Steps**:
   1. Converts the binary mask to a 3-channel image.
   2. Applies the mask to the original image using bitwise operations.
+ ```python
+def remove_background(image, mask):
+
+    # Convert the mask to a 3-channel image
+    mask_3channel = cv2.cvtColor(mask, cv2.COLOR_GRAY2BGR)
+
+    # Apply the mask to the original image to keep the leaves only
+    result = cv2.bitwise_and(image, mask_3channel)
+
+    return result
+```
 
 #### `process_images(input_folder, output_folder)`
 - **Input**: Input folder containing images and the output folder to save processed results.
@@ -121,7 +151,54 @@ def detect_blight(image, leaf_mask):
      - Removes the background using `remove_background()`.
   3. Saves the processed image to the output folder, maintaining the input folder’s structure.
 
----
+```python
+def process_images(input_folder, output_folder):
+    
+    #output folder existence
+    if not os.path.exists(output_folder):
+        os.makedirs(output_folder)
+
+    # Loop over all images in the folder
+    for subdir, _, files in os.walk(input_folder):
+        for file in files:
+            file_path = os.path.join(subdir, file)
+            image = cv2.imread(file_path)
+
+            if image is None:
+                print(f"Could not open image: {file_path}")
+                continue
+
+            print(f"Processing image: {file_path}")
+
+            # Segment the leaf from the image
+            initial_mask = segment_leaf(image)
+
+            # Filter the mask 
+            leaf_mask = filter_contours_by_shape(initial_mask)
+
+            # Detect blighted regions
+            blight_mask = detect_blight(image, leaf_mask)
+
+            # Draw circles around the blighted regions
+            image_with_circles = draw_circles_around_blight(image, blight_mask)
+
+            # Remove the background
+            result = remove_background(image_with_circles, leaf_mask)
+
+            # output path
+            output_path = os.path.join(output_folder, os.path.relpath(file_path, input_folder))
+            output_dir = os.path.dirname(output_path)
+
+            # existence of the output directory exists
+            if not os.path.exists(output_dir):
+                os.makedirs(output_dir)
+
+            # Saving the result
+            if not cv2.imwrite(output_path, result):
+                print(f"Failed to save image: {output_path}")
+            else:
+                print(f"Processed and saved: {output_path}")
+```
 
 ### Folder Structure
 
@@ -142,7 +219,18 @@ def detect_blight(image, leaf_mask):
 - **Structure**:
   - `train`: Training images.
   - `test`: Testing images.
+```python
+# Example usage:
+train_folder = "P:/1-uni/machine-learning/PlantDoc-Dataset/train"
+test_folder = "P:/1-uni/machine-learning/PlantDoc-Dataset/test"
+output_folder = "P:/1-uni/machine-learning/PlantDoc-Dataset/output"
 
+# Process the train folder
+process_images(train_folder, output_folder + "/train")
+
+# Process the test folder
+# process_images(test_folder, output_folder + "/test")
+```
 ---
 
 ## Usage
