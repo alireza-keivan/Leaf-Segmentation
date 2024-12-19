@@ -32,6 +32,29 @@ The pipeline processes images from the PlantDoc dataset, identifies leaf regions
   2. Filters contours with an area threshold (>1000 pixels).
   3. Approximates the contour shape and retains smooth shapes with more than 5 vertices.
   4. Draws the filtered contours onto a new mask.
+```python
+def filter_contours_by_shape(mask):
+    
+    # Finding contours 
+    contours, _ = cv2.findContours(mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+
+    # Create an empty mask to store the filtered contours
+    leaf_mask = np.zeros_like(mask)
+
+    # contours based on size and shape
+    for contour in contours:
+        area = cv2.contourArea(contour)
+
+        if area > 1000:  # Filter based on area
+            # Approximate the contour to reduce noise
+            perimeter = cv2.arcLength(contour, True)
+            approx = cv2.approxPolyDP(contour, 0.02 * perimeter, True)
+
+            # Use the number of vertices to estimate the shape (leaf-like shapes are usually smooth)
+            if len(approx) > 5:  # Ignore shapes that are too simple (like lines or small blobs)
+                cv2.drawContours(leaf_mask, [contour], -1, 255, thickness=cv2.FILLED)
+
+    return leaf_mask
 
 #### `detect_blight(image, leaf_mask)`
 - **Input**: Original image and the refined leaf mask.
@@ -43,6 +66,28 @@ The pipeline processes images from the PlantDoc dataset, identifies leaf regions
   3. Creates a mask for blighted regions using the HSV range.
   4. Refines the blight mask by combining it with the leaf mask.
   5. Cleans the mask using morphological operations.
+```python
+def detect_blight(image, leaf_mask):
+    
+    # image to HSV 
+    hsv = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
+
+    # HSV range for brown/orange blighted leaves
+    lower_blighted = np.array([10, 40, 40])
+    upper_blighted = np.array([25, 255, 255])
+
+    # mask for blighted regions
+    blight_mask = cv2.inRange(hsv, lower_blighted, upper_blighted)
+
+    # Filter the blight mask by the leaf mask (to ensure blights are within the leaf region)
+    blight_mask = cv2.bitwise_and(blight_mask, leaf_mask)
+
+    # morphology operation for cleaning
+    kernel = np.ones((5, 5), np.uint8)
+    blight_mask = cv2.morphologyEx(blight_mask, cv2.MORPH_CLOSE, kernel)  # Close small holes
+
+    return blight_mask
+
 
 #### `draw_circles_around_blight(image, blight_mask)`
 - **Input**: Original image and the binary mask of blighted regions.
