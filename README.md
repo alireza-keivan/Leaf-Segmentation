@@ -1,4 +1,3 @@
-# Leaf Segmentation
 # Leaf Blight Detection and Segmentation
 
 ## Overview
