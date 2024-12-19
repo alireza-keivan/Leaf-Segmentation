@@ -233,10 +233,4 @@ process_images(train_folder, output_folder + "/train")
 ```
 ---
 
-## Usage
 
-### Requirements
-
-- Install the required Python libraries:
-  ```bash
-  pip 
