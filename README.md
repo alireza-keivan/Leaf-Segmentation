@@ -53,6 +53,7 @@ def filter_contours_by_shape(mask):
             # Use the number of vertices to estimate the shape (leaf-like shapes are usually smooth)
             if len(approx) > 5:  # Ignore shapes that are too simple (like lines or small blobs)
                 cv2.drawContours(leaf_mask, [contour], -1, 255, thickness=cv2.FILLED)
+```
 
     return leaf_mask
 
