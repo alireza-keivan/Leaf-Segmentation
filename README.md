@@ -209,7 +209,7 @@ def process_images(input_folder, output_folder):
 - Stores the processed images with the same folder structure as the input.
 - Example: `PlantDoc-Dataset/output`.
 ## Output Examples
-![image](https://github.com/alireza-keivan/Leaf-Segmentation/blob/main/src/segmented%20images/37356969601_4208f8bb7f_b.jpg)
+![image](https://github.com/alireza-keivan/Leaf-Segmentation/blob/main/src/raw%20images/37356969601_4208f8bb7f_b.jpg)
 ![image](https://github.com/alireza-keivan/Leaf-Segmentation/blob/main/src/segmented%20images/37356969601_4208f8bb7f_b.jpg)
 ---
 ![image](https://github.com/alireza-keivan/Leaf-Segmentation/blob/main/src/raw%20images/Apple_RustSpots2.jpg)
