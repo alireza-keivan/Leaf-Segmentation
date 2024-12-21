@@ -210,8 +210,7 @@ def process_images(input_folder, output_folder):
 - Example: `PlantDoc-Dataset/output`.
 ## Output Examples
 
-<img src="https://github.com/alireza-keivan/Leaf-Segmentation/blob/main/src/raw%20images/Apple_RustSpots2.jpg" alt="rustspot" width="400" height="300">
-<img src="https://github.com/alireza-keivan/Leaf-Segmentation/blob/main/src/segmented%20images/Apple_RustSpots2.jpg" alt="rustspot" width="400" height="300">
+<img src="https://github.com/alireza-keivan/Leaf-Segmentation/blob/main/src/raw%20images/Apple_RustSpots2.jpg" alt="rustspot" width="300" height="200"> <img src="https://github.com/alireza-keivan/Leaf-Segmentation/blob/main/src/segmented%20images/Apple_RustSpots2.jpg" alt="rustspot" width="300" height="200">
 
 
 ![image](https://github.com/alireza-keivan/Leaf-Segmentation/blob/main/src/raw%20images/Apple_RustSpots2.jpg)
