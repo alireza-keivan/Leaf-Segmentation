@@ -1,4 +1,4 @@
-#Unsupervised Leaf Blight Detection and Segmentation
+# Unsupervised Leaf Blight Detection and Segmentation
 
 ## Overview
 
