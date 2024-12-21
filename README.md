@@ -220,7 +220,7 @@ def process_images(input_folder, output_folder):
 ---
 ![image](https://github.com/alireza-keivan/Leaf-Segmentation/blob/main/src/raw%20images/37356969601_4208f8bb7f_b.jpg)
 ![image](https://github.com/alireza-keivan/Leaf-Segmentation/blob/main/src/segmented%20images/37356969601_4208f8bb7f_b.jpg)
-For more Outouts check [src folder](https://github.com/alireza-keivan/Leaf-Segmentation/tree/main/src) 
+## For more Outputs check [src folder](https://github.com/alireza-keivan/Leaf-Segmentation/tree/main/src) 
 ## Dataset
 
 - **Source**: [PlantDoc Dataset](https://github.com/pratikkayal/PlantDoc-Dataset)
