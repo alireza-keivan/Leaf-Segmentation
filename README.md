@@ -218,6 +218,9 @@ def process_images(input_folder, output_folder):
 ![image](https://github.com/alireza-keivan/Leaf-Segmentation/blob/main/src/raw%20images/image_1500x1500%25253E.jpeg_1472603885.jpg)
 ![image](https://github.com/alireza-keivan/Leaf-Segmentation/blob/main/src/segmented%20images/image_1500x1500%25253E.jpeg_1472603885.jpg)
 ---
+![image](https://github.com/alireza-keivan/Leaf-Segmentation/blob/main/src/raw%20images/lipps-e.jpg)
+![image](https://github.com/alireza-keivan/Leaf-Segmentation/blob/main/src/segmented%20images/lipps-e.jpg)
+---
 ## Dataset
 
 - **Source**: [PlantDoc Dataset](https://github.com/pratikkayal/PlantDoc-Dataset)
