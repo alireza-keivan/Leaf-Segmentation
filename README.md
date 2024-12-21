@@ -209,9 +209,6 @@ def process_images(input_folder, output_folder):
 - Stores the processed images with the same folder structure as the input.
 - Example: `PlantDoc-Dataset/output`.
 ## Output Examples
-![image](https://github.com/alireza-keivan/Leaf-Segmentation/blob/main/src/raw%20images/37356969601_4208f8bb7f_b.jpg)
-![image](https://github.com/alireza-keivan/Leaf-Segmentation/blob/main/src/segmented%20images/37356969601_4208f8bb7f_b.jpg)
----
 ![image](https://github.com/alireza-keivan/Leaf-Segmentation/blob/main/src/raw%20images/Apple_RustSpots2.jpg)
 ![image](https://github.com/alireza-keivan/Leaf-Segmentation/blob/main/src/segmented%20images/Apple_RustSpots2.jpg)
 ---
@@ -221,6 +218,9 @@ def process_images(input_folder, output_folder):
 ![image](https://github.com/alireza-keivan/Leaf-Segmentation/blob/main/src/raw%20images/may27pepleaes002.jpg)
 ![image](https://github.com/alireza-keivan/Leaf-Segmentation/blob/main/src/segmented%20images/may27pepleaes002.jpg)
 ---
+![image](https://github.com/alireza-keivan/Leaf-Segmentation/blob/main/src/raw%20images/37356969601_4208f8bb7f_b.jpg)
+![image](https://github.com/alireza-keivan/Leaf-Segmentation/blob/main/src/segmented%20images/37356969601_4208f8bb7f_b.jpg)
+For more Outouts check ![link](https://github.com/alireza-keivan/Leaf-Segmentation/tree/main/src) 
 ## Dataset
 
 - **Source**: [PlantDoc Dataset](https://github.com/pratikkayal/PlantDoc-Dataset)
