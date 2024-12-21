@@ -211,22 +211,15 @@ def process_images(input_folder, output_folder):
 ## Output Examples
 
 <img src="https://github.com/alireza-keivan/Leaf-Segmentation/blob/main/src/raw%20images/Apple_RustSpots2.jpg" alt="rustspot" width="300" height="200"> <img src="https://github.com/alireza-keivan/Leaf-Segmentation/blob/main/src/segmented%20images/Apple_RustSpots2.jpg" alt="rustspot" width="300" height="200">
+---
+<img src="https://github.com/alireza-keivan/Leaf-Segmentation/blob/main/src/raw%20images/image_1500x1500%25253E.jpeg_1472603885.jpg" alt="rustspot" width="300" height="200"> <img src="https://github.com/alireza-keivan/Leaf-Segmentation/blob/main/src/segmented%20images/image_1500x1500%25253E.jpeg_1472603885.jpg" alt="rustspot" width="300" height="200">
+---
+<img src="https://github.com/alireza-keivan/Leaf-Segmentation/blob/main/src/raw%20images/may27pepleaes002.jpg" alt="rustspot" width="300" height="200"> <img src="https://github.com/alireza-keivan/Leaf-Segmentation/blob/main/src/segmented%20images/may27pepleaes002.jpg" alt="rustspot" width="300" height="200">
+---
+<img src="https://github.com/alireza-keivan/Leaf-Segmentation/blob/main/src/raw%20images/37356969601_4208f8bb7f_b.jpg" alt="rustspot" width="300" height="200"> <img src="https://github.com/alireza-keivan/Leaf-Segmentation/blob/main/src/segmented%20images/37356969601_4208f8bb7f_b.jpg" alt="rustspot" width="300" height="200">
+---
 
-
-![image](https://github.com/alireza-keivan/Leaf-Segmentation/blob/main/src/raw%20images/Apple_RustSpots2.jpg)
-![image](https://github.com/alireza-keivan/Leaf-Segmentation/blob/main/src/segmented%20images/Apple_RustSpots2.jpg)
----
-![image](https://github.com/alireza-keivan/Leaf-Segmentation/blob/main/src/raw%20images/image_1500x1500%25253E.jpeg_1472603885.jpg)
-![image](https://github.com/alireza-keivan/Leaf-Segmentation/blob/main/src/segmented%20images/image_1500x1500%25253E.jpeg_1472603885.jpg)
----
-![image](https://github.com/alireza-keivan/Leaf-Segmentation/blob/main/src/raw%20images/may27pepleaes002.jpg)
-![image](https://github.com/alireza-keivan/Leaf-Segmentation/blob/main/src/segmented%20images/may27pepleaes002.jpg)
----
-![image](https://github.com/alireza-keivan/Leaf-Segmentation/blob/main/src/raw%20images/37356969601_4208f8bb7f_b.jpg)
-![image](https://github.com/alireza-keivan/Leaf-Segmentation/blob/main/src/segmented%20images/37356969601_4208f8bb7f_b.jpg)
 ## For more Outputs check [src folder](https://github.com/alireza-keivan/Leaf-Segmentation/tree/main/src) 
-
-
 
 
 ## Dataset
